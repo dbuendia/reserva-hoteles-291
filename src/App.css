@@ -1,5 +1,11 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --tag-bg-colour: #F3F3F3;
+  --tag-icon-bg-colour: rgb(72 155 231);
+  --reservation-bg-colour: rgb(95 204 179);
 }
 
 .App-header {
@@ -14,12 +20,67 @@
 }
 
 .hotel-card {
-  width: 300px;
-  height: 650px;
-  border: 2px solid salmon;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 710px;
   margin: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.hotel-card-header img {
+  /* img fits parent div's width */
+  width: 100%;
+}
+
+.hotel-card-body {
+  padding: 25px;
+  font-size: 19px;
+}
+
+.hotel-card-name {
+  font-size: 31px;
+  font-weight: bold;
+}
+
+.hotel-card-description {
+  margin-top: 25px;
+}
+
+.hotel-card-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotel-card-tag-container img[class^="icon"] {
+  width: 40px;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  background: var(--tag-icon-bg-colour);
+  margin-right: 15px; /* Separates icon and text */
+}
+
+.hotel-card-tag-container div[class^="hotel-card-tag"] {
+  display: flex; /* Centers text with icon */
+  align-items: center; /* Centers text with icon */
+  background: var(--tag-bg-colour);
+  margin: 10px 10px 10px 0;
+  padding-right: 15px;
+  border-radius: 5px;
+  width: fit-content;
 }
 
 .hotel-card-footer {
-  background: aquamarine;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: var(--reservation-bg-colour);
+  color: white;
+}
+
+.hotel-card-footer button {
+  all: unset;
+  cursor: pointer;
+  font-weight: bold;
 }
