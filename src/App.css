@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --light-grey: rgb(243 243 243);
+  --dark-grey: rgb(40, 44, 52);
+  --sky-blue: rgb(72 155 231);
+  --turquoise: rgb(95 204 179);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.hotel-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 400px;
+  height: 710px;
+  margin: 50px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.hotel-card-header img {
+  /* img fits parent div's width */
+  width: 100%;
+}
+
+.hotel-card-body {
+  padding: 25px;
+  font-size: 19px;
+}
+
+.hotel-card-name {
+  font-size: 31px;
+  font-weight: bold;
+}
+
+.hotel-card-description {
+  margin-top: 25px;
+}
+
+.hotel-card-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotel-card-tag-container img[class^="icon"] {
+  width: 40px;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  background: var(--sky-blue);
+  margin-right: 15px; /* Separates icon and text */
+}
+
+.tag {
+  display: flex; /* Centers text with icon */
+  align-items: center; /* Centers text with icon */
+  background: var(--light-grey);
+  margin: 10px 10px 10px 0;
+  padding-right: 15px;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.hotel-card-footer {
+  flex: 1;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: var(--turquoise);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hotel-card-footer button {
+  all: unset;
+  cursor: pointer;
+  font-weight: bold;
 }
