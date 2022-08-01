@@ -62,16 +62,6 @@
   border-radius: 5px;
   width: fit-content;
 }
-/* 
-.hotel-card-tag-container div[class^="hotel-card-tag"] {
-  display: flex;
-  align-items: center;
-  background: var(--light-grey);
-  margin: 10px 10px 10px 0;
-  padding-right: 15px;
-  border-radius: 5px;
-  width: fit-content;
-}  */
 
 .hotel-card-footer {
   flex: 1;
