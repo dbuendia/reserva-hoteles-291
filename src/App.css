@@ -1,22 +1,14 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 :root {
-  --tag-bg-colour: #F3F3F3;
-  --tag-icon-bg-colour: rgb(72 155 231);
-  --reservation-bg-colour: rgb(95 204 179);
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  --light-grey: rgb(243 243 243);
+  --dark-grey: rgb(40, 44, 52);
+  --sky-blue: rgb(72 155 231);
+  --turquoise: rgb(95 204 179);
 }
 
 .hotel-card {
@@ -57,14 +49,14 @@
   height: 100%;
   padding: 10px;
   border-radius: 5px 0 0 5px;
-  background: var(--tag-icon-bg-colour);
+  background: var(--sky-blue);
   margin-right: 15px; /* Separates icon and text */
 }
 
 .hotel-card-tag-container div[class^="hotel-card-tag"] {
   display: flex; /* Centers text with icon */
   align-items: center; /* Centers text with icon */
-  background: var(--tag-bg-colour);
+  background: var(--light-grey);
   margin: 10px 10px 10px 0;
   padding-right: 15px;
   border-radius: 5px;
@@ -75,7 +67,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
-  background-color: var(--reservation-bg-colour);
+  background-color: var(--turquoise);
   color: white;
 }
 

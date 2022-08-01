@@ -8,7 +8,6 @@ function HotelCard(props) {
       <div className="hotel-card-header">
         <img src={props.photo} alt="La bamba de areco"></img>
       </div>
-
       <div className="hotel-card-body">
         <span className="hotel-card-name">{props.name}</span>
         <p className="hotel-card-description">{props.description}</p>
