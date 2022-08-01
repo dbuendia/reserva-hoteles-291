@@ -12,7 +12,7 @@ function HotelCard(props) {
         <span className="hotel-card-name">{props.name}</span>
         <p className="hotel-card-description">{props.description}</p>
         <div className="hotel-card-tag-container">
-          <div className="hotel-card-tag-location-pin">
+          <div className="tag">
             <img
               className="icon-location-pin"
               src={locationIcon}
@@ -20,13 +20,11 @@ function HotelCard(props) {
             />
             {props.city}, {props.country}
           </div>
-          <div className="hotel-card-tag-bed-icon">
+          <div className="tag">
             <img className="icon-bed" src={bedIcon} alt="bed" />
-            <div className="hotel-card-tag-rooms">
-              {props.rooms} Habitaciones
-            </div>
+            {props.rooms} Habitaciones
           </div>
-          <div className="hotel-card-tag-dollar-icon">
+          <div className="tag">
             <img className="icon-dollar" src={dollarIcon} alt="dollar" />
             {props.price}
           </div>

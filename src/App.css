@@ -53,7 +53,7 @@
   margin-right: 15px; /* Separates icon and text */
 }
 
-.hotel-card-tag-container div[class^="hotel-card-tag"] {
+.tag {
   display: flex; /* Centers text with icon */
   align-items: center; /* Centers text with icon */
   background: var(--light-grey);
@@ -62,6 +62,16 @@
   border-radius: 5px;
   width: fit-content;
 }
+/* 
+.hotel-card-tag-container div[class^="hotel-card-tag"] {
+  display: flex;
+  align-items: center;
+  background: var(--light-grey);
+  margin: 10px 10px 10px 0;
+  padding-right: 15px;
+  border-radius: 5px;
+  width: fit-content;
+}  */
 
 .hotel-card-footer {
   flex: 1;
