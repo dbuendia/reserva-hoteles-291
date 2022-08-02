@@ -1,3 +1,4 @@
+import React from "react";
 import locationIcon from "../icons/location-pin.svg";
 import bedIcon from "../icons/bed.svg";
 import dollarIcon from "../icons/dollar.svg";
@@ -6,11 +7,13 @@ function HotelCard(props) {
   return (
     <div className="hotel-card">
       <div className="hotel-card-header">
-        <img src={props.photo} alt="La bamba de areco"></img>
+        <img src={props.photo} alt={props.name}></img>
       </div>
       <div className="hotel-card-body">
-        <span className="hotel-card-name">{props.name}</span>
-        <p className="hotel-card-description">{props.description}</p>
+        <div className="hotel-card-text-container">
+          <span className="hotel-card-name">{props.name}</span>
+          <p className="hotel-card-description">{props.description}</p>
+        </div>
         <div className="hotel-card-tag-container">
           <div className="tag">
             <img

@@ -1,19 +1,15 @@
 import "./App.css";
-import HotelCard from "./components/HotelCard";
-import hotels from "./datasets/hotels.js";
+import Header from "./components/Header";
+import Filters from "./components/Filters";
+import Hotels from "./components/Hotels";
+import hotelList from "./datasets/hotelList";
 
 function App() {
   return (
     <div className="App">
-      <HotelCard
-        photo={hotels[0].photo}
-        name={hotels[0].name}
-        price={hotels[0].price}
-        description={hotels[0].description}
-        rooms={hotels[0].rooms}
-        city={hotels[0].city}
-        country={hotels[0].country}
-      />
+      <Header />
+      <Filters />
+      <Hotels hotels={hotelList} />
     </div>
   );
 }
