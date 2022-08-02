@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Filters />
-      <Hotels hotels={hotelList} />
+      <Hotels hotelList={hotelList} />
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import React from "react";
 import HotelCard from "./HotelCard";
 
-function Hotels(props) {
-  console.log(props);
+function Hotels({ hotelList }) {
   return (
     <div className="hotels">
-      {props.hotels.map((hotel) => {
+      {hotelList.map((hotel) => {
         return (
           <HotelCard
             photo={hotel.photo}
