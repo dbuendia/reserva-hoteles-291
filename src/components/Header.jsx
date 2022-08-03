@@ -1,9 +1,11 @@
 import React from "react";
 
-function Header() {
+function Header({ country, price, capacity }) {
   return (
     <div className="header">
-      <h1>Header</h1>
+      <h1>
+        Seleccionado: {country} {price} y {capacity}
+      </h1>
     </div>
   );
 }
