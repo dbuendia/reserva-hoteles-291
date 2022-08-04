@@ -1,4 +1,5 @@
 import React from "react";
+import { countries, capacities, prices } from "../datasets/consts";
 
 function Filters({
   country,
@@ -29,17 +30,17 @@ function Filters({
         onChange={handleCountrySelectChange}
         value={country}
       >
-        <option value="Argentina">Argentina</option>
-        <option value="Brasil">Brasil</option>
-        <option value="Chile">Chile</option>
-        <option value="Uruguay">Uruguay</option>
+        <option value={countries.argentina}>{countries.argentina}</option>
+        <option value={countries.brasil}>{countries.brasil}</option>
+        <option value={countries.chile}>{countries.chile}</option>
+        <option value={countries.uruguay}>{countries.uruguay}</option>
       </select>
       <span>Precio:</span>
       <select name="Price" onChange={handlePriceSelectChange} value={price}>
-        <option value="Económico">Económico</option>
-        <option value="Estándar">Estándar</option>
-        <option value="Cómodo">Cómodo</option>
-        <option value="Lujoso">Lujoso</option>
+        <option value={prices.economico}>{prices.economico}</option>
+        <option value={prices.estandar}>{prices.estandar}</option>
+        <option value={prices.comodo}>{prices.comodo}</option>
+        <option value={prices.lujoso}>{prices.lujoso}</option>
       </select>
       <span>Tamaño:</span>
       <select
@@ -47,9 +48,9 @@ function Filters({
         onChange={handleCapacitySelectChange}
         value={capacity}
       >
-        <option value="Pequeño">Pequeño</option>
-        <option value="Mediano">Mediano</option>
-        <option value="Grande">Grande</option>
+        <option value={capacities.pequeno}>{capacities.pequeno}</option>
+        <option value={capacities.mediano}>{capacities.mediano}</option>
+        <option value={capacities.grande}>{capacities.grande}</option>
       </select>
     </div>
   );
