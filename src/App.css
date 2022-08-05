@@ -4,6 +4,11 @@
   margin: 0;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --white: rgb(255 255 255);
   --light-grey: rgb(243 243 243);
@@ -26,17 +31,90 @@
 
 .filters {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   width: 100%;
   height: 100px;
   background-color: var(--dark-blue);
   text-align: center;
 }
 
+.filters .filter-title {
+  flex-basis: 100%;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.filters div {
+  width: 33%;
+}
+
+.filters div select {
+  width: 80%;
+}
+
 .filters span {
   margin-right: 5px;
   margin-left: 15px;
+  font-size: 16px;
+}
+
+select {
+  /* styling */
+  background-color: var(--white);
+  border: thin solid var(--dark-blue);
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--dark-grey) 50%),
+    linear-gradient(135deg, var(--dark-grey) 50%, transparent 50%),
+    linear-gradient(to right, var(--dark-grey), var(--dark-grey));
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, var(--dark-blue) 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, var(--dark-blue) 50%),
+    linear-gradient(to right, var(--dark-grey), var(--dark-grey));
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: var(--dark-blue);
+  outline: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
 }
 
 .hotels {
@@ -114,4 +192,23 @@
   all: unset;
   cursor: pointer;
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .filters div {
+    width: 90%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  .filters div select {
+    width: 100%;
+  }
+  .filters {
+    height: 100%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
