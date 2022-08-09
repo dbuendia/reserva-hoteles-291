@@ -1,4 +1,5 @@
 import React from "react";
+import { countries, capacities, prices } from "../datasets/consts";
 import HotelCard from "./HotelCard";
 
 // Recibo props de cada filtro desde app (country, price, capacity)
@@ -8,14 +9,14 @@ function Hotels({ hotelList, country, price, capacity }) {
     .filter((hotel) => {
       // 1. Si el país del select es "todos":
       // Metemos el elemento directamente en el array de filter haciendo que la condición devuelva true.
-      if (country === "Todos") {
+      if (country === countries.todos) {
         return true;
       }
       // 2. Si el país del hotel es igual al del select, lo incluimos en el array, porque la condición será true.
       return hotel.country === country;
     })
     .filter((hotel) => {
-      if (price === "Todos") {
+      if (price === prices.todos) {
         return true;
       }
       return hotel.price.toString() === price;
@@ -23,16 +24,16 @@ function Hotels({ hotelList, country, price, capacity }) {
     .filter((hotel) => {
       let size = "";
 
-      if (capacity === "Todos") {
+      if (capacity === capacities.todos) {
         return true;
       }
 
       if (hotel.rooms > 20) {
-        size = "Grande";
+        size = capacities.grande;
       } else if (hotel.rooms > 10 && hotel.rooms < 20) {
-        size = "Mediano";
+        size = capacities.mediano;
       } else {
-        size = "Pequeño";
+        size = capacities.pequeno;
       }
       return size === capacity;
     });
