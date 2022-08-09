@@ -32,6 +32,7 @@ function Filters({
           value={country}
           className="minimal"
         >
+          <option value={countries.todos}>{countries.todos}</option>
           <option value={countries.argentina}>{countries.argentina}</option>
           <option value={countries.brasil}>{countries.brasil}</option>
           <option value={countries.chile}>{countries.chile}</option>
@@ -46,10 +47,11 @@ function Filters({
           value={price}
           className="minimal"
         >
-          <option value={prices.economico}>{prices.economico}</option>
-          <option value={prices.estandar}>{prices.estandar}</option>
-          <option value={prices.comodo}>{prices.comodo}</option>
-          <option value={prices.lujoso}>{prices.lujoso}</option>
+          <option value={prices.todos}>{prices.todos}</option>
+          <option value="1">{prices.economico}</option>
+          <option value="2">{prices.estandar}</option>
+          <option value="3">{prices.comodo}</option>
+          <option value="4">{prices.lujoso}</option>
         </select>
       </div>
       <div>
@@ -60,6 +62,7 @@ function Filters({
           value={capacity}
           className="minimal"
         >
+          <option value={capacities.todos}>{capacities.todos}</option>
           <option value={capacities.pequeno}>{capacities.pequeno}</option>
           <option value={capacities.mediano}>{capacities.mediano}</option>
           <option value={capacities.grande}>{capacities.grande}</option>

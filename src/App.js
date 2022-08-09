@@ -8,9 +8,9 @@ import hotelList from "./datasets/hotelList";
 
 function App() {
   // El value inicial de un Select debe coincidir con un value válido de sus options
-  const [country, setCountry] = useState(countries.argentina);
-  const [price, setPrice] = useState(prices.economico);
-  const [capacity, setCapacity] = useState(capacities.pequeno);
+  const [country, setCountry] = useState(countries.todos);
+  const [price, setPrice] = useState(prices.todos);
+  const [capacity, setCapacity] = useState(capacities.todos);
 
   return (
     <div className="App">
@@ -23,7 +23,12 @@ function App() {
         setPrice={setPrice}
         setCapacity={setCapacity}
       />
-      <Hotels hotelList={hotelList} />
+      <Hotels
+        country={country}
+        price={price}
+        capacity={capacity}
+        hotelList={hotelList}
+      />
     </div>
   );
 }
