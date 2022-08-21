@@ -46,10 +46,10 @@
 }
 
 .filters div {
-  width: 33%;
+  width: 20%;
 }
 
-.filters div select {
+.filters div select, .filters div input {
   width: 80%;
 }
 
@@ -59,7 +59,7 @@
   font-size: 16px;
 }
 
-select {
+select, input {
   /* styling */
   background-color: var(--white);
   border: thin solid var(--dark-blue);
@@ -78,7 +78,7 @@ select {
   -moz-appearance: none;
 }
 
-select.minimal {
+select.minimal, input.minimal {
   background-image:
     linear-gradient(45deg, transparent 50%, var(--dark-grey) 50%),
     linear-gradient(135deg, var(--dark-grey) 50%, transparent 50%),
@@ -94,7 +94,7 @@ select.minimal {
   background-repeat: no-repeat;
 }
 
-select.minimal:focus {
+select.minimal:focus, input.minimal:focus {
   background-image:
     linear-gradient(45deg, var(--dark-blue) 50%, transparent 50%),
     linear-gradient(135deg, transparent 50%, var(--dark-blue) 50%),
@@ -112,7 +112,7 @@ select.minimal:focus {
   outline: 0;
 }
 
-select:-moz-focusring {
+select:-moz-focusring, input:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
@@ -201,9 +201,10 @@ select:-moz-focusring {
     margin-top: 10px;
   }
 
-  .filters div select {
+  .filters div select, .filters div input {
     width: 100%;
   }
+
   .filters {
     height: 100%;
     flex-wrap: nowrap;

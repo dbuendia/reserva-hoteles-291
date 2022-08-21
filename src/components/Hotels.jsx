@@ -3,7 +3,12 @@ import { countries, capacities, prices } from "../datasets/consts";
 import HotelCard from "./HotelCard";
 
 // Recibo props de cada filtro desde app (country, price, capacity)
-function Hotels({ hotelList, country, price, capacity }) {
+function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
+  // Me aseguro de que los rangos de "date" estén en el formato correcto y tiempo Unix para poder compararlos.
+  dateFrom = new Date(dateFrom);
+  dateTo = new Date(dateTo);
+  console.log(dateFrom.getTime(), dateTo.getTime());
+
   // Filtro todos los elementos segun las opciones de los select con 3 filtros encadenados.
   let filteredHotels = hotelList
     .filter((hotel) => {
@@ -36,7 +41,28 @@ function Hotels({ hotelList, country, price, capacity }) {
         size = capacities.pequeno;
       }
       return size === capacity;
+    })
+    .filter((hotel) => {
+      console.log(hotel.availabilityFrom + " From");
+      console.log(dateFrom.getTime() + " usuario from");
+      // console.log(hotel.availabilityTo + " To");
+      // console.log(dateTo.getTime() + " usuario to");
+
+      // Parece que en el dataset la fecha del today se crea en el momento de hacer npm start,
+      // Sin embargo en el input es el primer momento del dia elegido (0h). Entonces la logica q tengo aqui nunca se cumple:
+      // Porq en realidad mi fecha del input es menor (aunq no deberia serlo)
+      // if (
+      //   dateFrom.getTime() >= hotel.availabilityFrom &&
+      //   dateTo.getTime() <= hotel.availabilityTo
+      // ) {
+      //   console.log("Dentro del rango");
+      // } else {
+      //   console.log("no");
+      // }
     });
+  // Si el rango de datos escogidos está entre el rango de disponibilidad de los hoteles:
+  //  // Si dateFrom es = o mayor a availabilityFrom (el dia está dentro del rango de availability from), meto el hotel en true
+  // Si dateTo es = o menor a availabilityTo
 
   return (
     <div className="hotels">

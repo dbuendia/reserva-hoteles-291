@@ -8,6 +8,10 @@ function Filters({
   setCountry,
   setPrice,
   setCapacity,
+  dateFrom,
+  setDateFrom,
+  dateTo,
+  setDateTo,
 }) {
   function handleCountrySelectChange(e) {
     setCountry(e.target.value);
@@ -19,6 +23,14 @@ function Filters({
 
   function handleCapacitySelectChange(e) {
     setCapacity(e.target.value);
+  }
+
+  function handleDateFromChange(e) {
+    setDateFrom(e.target.value);
+  }
+
+  function handleDateToChange(e) {
+    setDateTo(e.target.value);
   }
 
   return (
@@ -67,6 +79,24 @@ function Filters({
           <option value={capacities.mediano}>{capacities.mediano}</option>
           <option value={capacities.grande}>{capacities.grande}</option>
         </select>
+      </div>
+      <div>
+        <span>Desde:</span>
+        <input
+          className="minimal"
+          type="date"
+          value={dateFrom}
+          onChange={handleDateFromChange}
+        />
+      </div>
+      <div>
+        <span>Hasta:</span>
+        <input
+          className="minimal"
+          type="date"
+          value={dateTo}
+          onChange={handleDateToChange}
+        />
       </div>
     </div>
   );
