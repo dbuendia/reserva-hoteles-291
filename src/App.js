@@ -11,14 +11,8 @@ function App() {
   const [country, setCountry] = useState(countries.todos);
   const [price, setPrice] = useState(prices.todos);
   const [capacity, setCapacity] = useState(capacities.todos);
-  // Input date states
-  let today = new Date();
-  // today.setHours(0, 0, 0, 0);
-  // console.log(today.getTime() + "antes del ISOOOO");
-  // We format the date in yyyy-mm-dd format, which is required for the input date.
-  today = today.toISOString().split("T")[0];
-  const [dateFrom, setDateFrom] = useState(today);
-  const [dateTo, setDateTo] = useState(today);
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
 
   return (
     <div className="App">

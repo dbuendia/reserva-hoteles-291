@@ -4,10 +4,20 @@ import HotelCard from "./HotelCard";
 
 // Recibo props de cada filtro desde app (country, price, capacity)
 function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
-  // Me aseguro de que los rangos de "date" estén en el formato correcto y tiempo Unix para poder compararlos.
+  // Usamos el valor de los input para crear un nuevo objeto Date.
   dateFrom = new Date(dateFrom);
   dateTo = new Date(dateTo);
-  console.log(dateFrom.getTime(), dateTo.getTime());
+
+  // Unificamos las fechas en el timeZone de Madrid:
+  dateFrom.toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+  dateTo.toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+
+  // Seteamos las horas en 0 para buscar a partir de las 12 de la noche del día seleccionado
+  dateFrom.setHours(0, 0, 0, 0);
+  dateTo.setHours(0, 0, 0, 0);
+
+  const unixDateFrom = dateFrom.getTime();
+  const unixDateTo = dateTo.getTime();
 
   // Filtro todos los elementos segun las opciones de los select con 3 filtros encadenados.
   let filteredHotels = hotelList
@@ -43,26 +53,15 @@ function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
       return size === capacity;
     })
     .filter((hotel) => {
-      console.log(hotel.availabilityFrom + " From");
-      console.log(dateFrom.getTime() + " usuario from");
-      // console.log(hotel.availabilityTo + " To");
-      // console.log(dateTo.getTime() + " usuario to");
-
-      // Parece que en el dataset la fecha del today se crea en el momento de hacer npm start,
-      // Sin embargo en el input es el primer momento del dia elegido (0h). Entonces la logica q tengo aqui nunca se cumple:
-      // Porq en realidad mi fecha del input es menor (aunq no deberia serlo)
-      // if (
-      //   dateFrom.getTime() >= hotel.availabilityFrom &&
-      //   dateTo.getTime() <= hotel.availabilityTo
-      // ) {
-      //   console.log("Dentro del rango");
-      // } else {
-      //   console.log("no");
-      // }
+      /* A través de la comparación de fechas UNIX, si el rango de datos escogidos está entre el rango de disponibilidad
+      de los hoteles añadimos el hotel al array filtrado */
+      if (
+        unixDateFrom >= hotel.availabilityFrom &&
+        unixDateTo <= hotel.availabilityTo
+      ) {
+        return true;
+      }
     });
-  // Si el rango de datos escogidos está entre el rango de disponibilidad de los hoteles:
-  //  // Si dateFrom es = o mayor a availabilityFrom (el dia está dentro del rango de availability from), meto el hotel en true
-  // Si dateTo es = o menor a availabilityTo
 
   return (
     <div className="hotels">
