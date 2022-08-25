@@ -16,7 +16,7 @@ export const prices = {
 
 export const capacities = {
   todos: "Todos",
-  pequeno: "Pequeño",
-  mediano: "Mediano",
-  grande: "Grande",
+  small: "Pequeño",
+  medium: "Mediano",
+  large: "Grande",
 };

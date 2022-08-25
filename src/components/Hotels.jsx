@@ -44,11 +44,11 @@ function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
       }
 
       if (hotel.rooms > 20) {
-        size = capacities.grande;
+        size = capacities.large;
       } else if (hotel.rooms > 10 && hotel.rooms < 20) {
-        size = capacities.mediano;
+        size = capacities.medium;
       } else {
-        size = capacities.pequeno;
+        size = capacities.small;
       }
       return size === capacity;
     })

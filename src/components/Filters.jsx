@@ -75,9 +75,9 @@ function Filters({
           className="minimal"
         >
           <option value={capacities.todos}>{capacities.todos}</option>
-          <option value={capacities.pequeno}>{capacities.pequeno}</option>
-          <option value={capacities.mediano}>{capacities.mediano}</option>
-          <option value={capacities.grande}>{capacities.grande}</option>
+          <option value={capacities.small}>{capacities.small}</option>
+          <option value={capacities.medium}>{capacities.medium}</option>
+          <option value={capacities.large}>{capacities.large}</option>
         </select>
       </div>
       <div>
