@@ -11,10 +11,18 @@ function App() {
   const [country, setCountry] = useState(countries.todos);
   const [price, setPrice] = useState(prices.todos);
   const [capacity, setCapacity] = useState(capacities.todos);
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
 
   return (
     <div className="App">
-      <Header country={country} price={price} capacity={capacity} />
+      <Header
+        country={country}
+        price={price}
+        capacity={capacity}
+        dateFrom={dateFrom}
+        dateTo={dateTo}
+      />
       <Filters
         country={country}
         price={price}
@@ -22,12 +30,18 @@ function App() {
         setCountry={setCountry}
         setPrice={setPrice}
         setCapacity={setCapacity}
+        dateFrom={dateFrom}
+        dateTo={dateTo}
+        setDateFrom={setDateFrom}
+        setDateTo={setDateTo}
       />
       <Hotels
         country={country}
         price={price}
         capacity={capacity}
         hotelList={hotelList}
+        dateFrom={dateFrom}
+        dateTo={dateTo}
       />
     </div>
   );

@@ -1,4 +1,9 @@
 const today = new Date();
+// Unificamos las fechas en el timeZone de Madrid:
+today.toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+// Seteamos la hora en 0 para que el día de disponibilidad de los hoteles empiece a las 00:00 de la noche:
+today.setHours(0, 0, 0, 0);
+
 const hotelList = [
   {
     slug: "la-bamba-de-areco",

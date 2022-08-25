@@ -3,7 +3,22 @@ import { countries, capacities, prices } from "../datasets/consts";
 import HotelCard from "./HotelCard";
 
 // Recibo props de cada filtro desde app (country, price, capacity)
-function Hotels({ hotelList, country, price, capacity }) {
+function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
+  // Usamos el valor de los input para crear un nuevo objeto Date.
+  dateFrom = new Date(dateFrom);
+  dateTo = new Date(dateTo);
+
+  // Unificamos las fechas en el timeZone de Madrid:
+  dateFrom.toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+  dateTo.toLocaleString("es-ES", { timeZone: "Europe/Madrid" });
+
+  // Seteamos las horas en 0 para buscar a partir de las 12 de la noche del día seleccionado
+  dateFrom.setHours(0, 0, 0, 0);
+  dateTo.setHours(0, 0, 0, 0);
+
+  const unixDateFrom = dateFrom.getTime();
+  const unixDateTo = dateTo.getTime();
+
   // Filtro todos los elementos segun las opciones de los select con 3 filtros encadenados.
   let filteredHotels = hotelList
     .filter((hotel) => {
@@ -29,13 +44,23 @@ function Hotels({ hotelList, country, price, capacity }) {
       }
 
       if (hotel.rooms > 20) {
-        size = capacities.grande;
+        size = capacities.large;
       } else if (hotel.rooms > 10 && hotel.rooms < 20) {
-        size = capacities.mediano;
+        size = capacities.medium;
       } else {
-        size = capacities.pequeno;
+        size = capacities.small;
       }
       return size === capacity;
+    })
+    .filter((hotel) => {
+      /* A través de la comparación de fechas UNIX, si el rango de datos escogidos está entre el rango de disponibilidad
+      de los hoteles añadimos el hotel al array filtrado */
+      if (
+        unixDateFrom >= hotel.availabilityFrom &&
+        unixDateTo <= hotel.availabilityTo
+      ) {
+        return true;
+      }
     });
 
   return (
