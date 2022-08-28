@@ -33,11 +33,18 @@ function Filters({
     setDateTo(e.target.value);
   }
 
+  function restartValues() {
+    setCountry("");
+    setPrice("");
+    setCapacity("");
+    setDateFrom("");
+    setDateTo("");
+  }
+
   return (
     <div className="filters">
-      <p className="filter-title">Filtros</p>
+      <p className="filter-title">Filtros:</p>
       <div>
-        <span>País:</span>
         <select
           name="Country"
           onChange={handleCountrySelectChange}
@@ -52,7 +59,6 @@ function Filters({
         </select>
       </div>
       <div>
-        <span>Precio:</span>
         <select
           name="Price"
           onChange={handlePriceSelectChange}
@@ -67,7 +73,6 @@ function Filters({
         </select>
       </div>
       <div>
-        <span>Tamaño:</span>
         <select
           name="Capacity"
           onChange={handleCapacitySelectChange}
@@ -97,6 +102,9 @@ function Filters({
           value={dateTo}
           onChange={handleDateToChange}
         />
+      </div>
+      <div>
+        <input className="" type="reset" onClick={restartValues} />
       </div>
     </div>
   );
