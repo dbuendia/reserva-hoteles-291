@@ -104,7 +104,7 @@ function Filters({
         />
       </div>
       <div>
-        <input className="" type="reset" onClick={restartValues} />
+        <input type="reset" onClick={restartValues} />
       </div>
     </div>
   );
