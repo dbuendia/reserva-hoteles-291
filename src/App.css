@@ -19,14 +19,26 @@
 }
 
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 200px;
   margin: 0 auto; /* Why? */
-  background-color: cyan;
+  background-color: var(--turquoise);
   text-align: center;
+  color: var(--white)
+}
+
+.header h1 {
+  /* flex-basis: 100%; */
+  /* padding: 30px; */
+  /* font-size: 50px; */
+  margin-top: 30px;
+}
+
+.header-title {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .filters {
@@ -42,11 +54,11 @@
 .filters .filter-title {
   flex-basis: 100%;
   margin-top: 5px;
-  font-size: 20px;
+  color: var(--white)
 }
 
 .filters div {
-  width: 20%;
+  width: 16.6%;
 }
 
 .filters div select, .filters div input {
@@ -57,6 +69,7 @@
   margin-right: 5px;
   margin-left: 15px;
   font-size: 16px;
+  color: var(--white)
 }
 
 select, input {
@@ -195,6 +208,10 @@ select:-moz-focusring, input:-moz-focusring {
 }
 
 @media (max-width: 600px) {
+  .header h1 {
+    font-size: 35px;
+  }
+
   .filters div {
     width: 90%;
     margin-bottom: 15px;

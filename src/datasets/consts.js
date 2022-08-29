@@ -1,5 +1,5 @@
 export const countries = {
-  todos: "Todos",
+  todos: "País",
   argentina: "Argentina",
   brasil: "Brasil",
   chile: "Chile",
@@ -7,7 +7,7 @@ export const countries = {
 };
 
 export const prices = {
-  todos: "Todos",
+  todos: "Precio",
   economico: "Económico",
   estandar: "Estándar",
   comodo: "Cómodo",
@@ -15,7 +15,7 @@ export const prices = {
 };
 
 export const capacities = {
-  todos: "Todos",
+  todos: "Tamaño",
   small: "Pequeño",
   medium: "Mediano",
   large: "Grande",

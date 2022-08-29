@@ -1,12 +1,5 @@
 import React from "react";
 
-// {
-//   dateFrom.toLocaleString("es-ES", options);
-// }
-// {
-//   dateTo.toLocaleString("es-ES", options);
-// }
-
 function Header({ country, price, capacity, dateFrom, dateTo }) {
   const options = {
     year: "numeric",
@@ -32,13 +25,43 @@ function Header({ country, price, capacity, dateFrom, dateTo }) {
   const finalDateFrom = preDateFrom.toLocaleString("es-ES", options);
   const finalDateTo = preDateTo.toLocaleString("es-ES", options);
 
+  // Convertimos el valor numérico de precio a lenguaje natural:
+  switch (price) {
+    case "1":
+      price = "Económico";
+      break;
+    case "2":
+      price = "Estándar";
+      break;
+    case "3":
+      price = "Cómodo";
+      break;
+    case "4":
+      price = "Lujoso";
+      break;
+  }
+
   return (
     <div className="header">
-      <h1>
-        Seleccionado: {country} {price} y {capacity}
-        {dateFrom ? ` entre el ${finalDateFrom}` : ""}
-        {dateTo ? ` y el ${finalDateTo}` : ""}
-      </h1>
+      <div className="header-title">
+        <h1>Reserva de Hoteles 291</h1>
+      </div>
+      <div className="header-active-filter">
+        {/* Si hay algún filtro seleccionado se muestra en el header: */}
+        {country === "País" && price === "Precio" && capacity === "Tamaño" ? (
+          ""
+        ) : (
+          <div>
+            {country === "País" || country === "" ? "" : ` País ${country} |`}
+            {price === "Precio" || price === "" ? "" : ` Precio ${price} |`}
+            {capacity === "Tamaño" || capacity === ""
+              ? ""
+              : ` Capacidad ${capacity} |`}
+            {dateFrom ? ` Entre el ${finalDateFrom} |` : ""}
+            {dateTo ? ` Hasta el ${finalDateTo}` : ""}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
