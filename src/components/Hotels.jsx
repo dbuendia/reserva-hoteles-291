@@ -53,6 +53,10 @@ function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
       return size === capacity;
     })
     .filter((hotel) => {
+      /* Si los input date están vacíos se muestran todos los hoteles. Indicamos || en lugar de && para que no se actualice la lista de hoteles hasta que ambas fechas hayan sido seleccionadas */
+      if (isNaN(unixDateFrom) || isNaN(unixDateTo)) {
+        return true;
+      }
       /* A través de la comparación de fechas UNIX, si el rango de datos escogidos está entre el rango de disponibilidad
       de los hoteles añadimos el hotel al array filtrado */
       if (
