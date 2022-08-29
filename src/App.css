@@ -134,6 +134,12 @@ select:-moz-focusring, input:-moz-focusring {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
+}
+
+.hotels .error-message {
+  margin-top: 150px;
+  text-align: center;
 }
 
 .hotel-card {
