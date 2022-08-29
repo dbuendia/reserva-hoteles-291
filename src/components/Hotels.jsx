@@ -69,19 +69,28 @@ function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
 
   return (
     <div className="hotels">
-      {filteredHotels.map((elem) => {
-        return (
-          <HotelCard
-            photo={elem.photo}
-            name={elem.name}
-            price={elem.price}
-            description={elem.description}
-            rooms={elem.rooms}
-            city={elem.city}
-            country={elem.country}
-          />
-        );
-      })}
+      {/* Si el array de hoteles no está vacío, se muestran los datos */}
+      {filteredHotels.length != 0 ? (
+        filteredHotels.map((elem) => {
+          return (
+            <HotelCard
+              photo={elem.photo}
+              name={elem.name}
+              price={elem.price}
+              description={elem.description}
+              rooms={elem.rooms}
+              city={elem.city}
+              country={elem.country}
+              availabilityFrom={elem.availabilityFrom}
+              availabilityTo={elem.availabilityTo}
+            />
+          );
+        })
+      ) : (
+        <p className="error-message">
+          Lo sentimos, no hay hoteles disponibles con los filtros seleccionados.
+        </p>
+      )}
     </div>
   );
 }
