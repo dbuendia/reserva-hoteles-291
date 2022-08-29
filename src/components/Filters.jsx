@@ -26,11 +26,40 @@ function Filters({
   }
 
   function handleDateFromChange(e) {
-    setDateFrom(e.target.value);
+    dateFrom = new Date(e.target.value);
+    dateTo = new Date(dateTo);
+
+    dateFrom.setHours(0, 0, 0, 0);
+    dateTo.setHours(0, 0, 0, 0);
+
+    let dateFromUnix = dateFrom.getTime();
+    let dateToUnix = dateTo.getTime();
+
+    if (dateFromUnix > dateToUnix) {
+      alert(
+        "No se puede indicar una fecha de entrada posterior a la de salida."
+      );
+    } else {
+      setDateFrom(e.target.value);
+    }
   }
 
   function handleDateToChange(e) {
-    setDateTo(e.target.value);
+    dateFrom = new Date(dateFrom);
+    dateTo = new Date(e.target.value);
+
+    dateFrom.setHours(0, 0, 0, 0);
+    dateTo.setHours(0, 0, 0, 0);
+
+    let dateFromUnix = dateFrom.getTime();
+    let dateToUnix = dateTo.getTime();
+    if (dateFromUnix > dateToUnix) {
+      alert(
+        "No se puede indicar una fecha de salida anterior a la de entrada."
+      );
+    } else {
+      setDateTo(e.target.value);
+    }
   }
 
   function restartValues() {

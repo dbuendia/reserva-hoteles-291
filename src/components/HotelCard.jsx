@@ -3,7 +3,17 @@ import locationIcon from "../icons/location-pin.svg";
 import bedIcon from "../icons/bed.svg";
 import dollarIcon from "../icons/dollar.svg";
 
-function HotelCard({ photo, name, description, city, country, rooms, price }) {
+function HotelCard({
+  photo,
+  name,
+  description,
+  city,
+  country,
+  rooms,
+  price,
+  availabilityFrom,
+  availabilityTo,
+}) {
   return (
     <div className="hotel-card">
       <div className="hotel-card-header">
@@ -30,6 +40,10 @@ function HotelCard({ photo, name, description, city, country, rooms, price }) {
           <div className="tag">
             <img className="icon-dollar" src={dollarIcon} alt="dollar" />
             {price}
+          </div>
+          <div>
+            {availabilityFrom}
+            {availabilityTo}
           </div>
         </div>
       </div>

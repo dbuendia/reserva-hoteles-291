@@ -79,6 +79,8 @@ function Hotels({ hotelList, country, price, capacity, dateFrom, dateTo }) {
             rooms={elem.rooms}
             city={elem.city}
             country={elem.country}
+            availabilityFrom={elem.availabilityFrom}
+            availabilityTo={elem.availabilityTo}
           />
         );
       })}
