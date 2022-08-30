@@ -91,6 +91,11 @@ select, input {
   -moz-appearance: none;
 }
 
+input[type="reset"] {
+  padding: 0.5em 0em;
+  text-align: center;
+}
+
 select.minimal, input.minimal {
   background-image:
     linear-gradient(45deg, transparent 50%, var(--dark-grey) 50%),
@@ -146,7 +151,7 @@ select:-moz-focusring, input:-moz-focusring {
   display: flex;
   flex-direction: column;
   width: 400px;
-  height: 750px;
+  height: 800px;
   margin: 50px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -197,6 +202,7 @@ select:-moz-focusring, input:-moz-focusring {
   padding-right: 15px;
   border-radius: 5px;
   width: fit-content;
+  font-size: 18px;
 }
 
 .hotel-card-footer {
