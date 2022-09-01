@@ -17,7 +17,7 @@ function HotelCard({
 }) {
   function formatUnixToNaturalDate(dateUnix) {
     let dateNatural = new Date(dateUnix);
-    return `${dateNatural.getDate()}/${dateNatural.getMonth()}/${dateNatural.getFullYear()}`;
+    return `${dateNatural.getDate()}/${dateNatural.getMonth() + 1}/${dateNatural.getFullYear()}`;
   }
 
   function dollars(number) {
