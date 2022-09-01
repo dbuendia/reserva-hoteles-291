@@ -63,9 +63,9 @@ function Filters({
   }
 
   function restartValues() {
-    setCountry("");
-    setPrice("");
-    setCapacity("");
+    setCountry(countries.todos);
+    setPrice(prices.todos);
+    setCapacity(capacities.todos);
     setDateFrom("");
     setDateTo("");
   }

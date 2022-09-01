@@ -2,6 +2,7 @@ import React from "react";
 import locationIcon from "../icons/location-pin.svg";
 import bedIcon from "../icons/bed.svg";
 import dollarIcon from "../icons/dollar.svg";
+import availabilityIcon from "../icons/availability.svg";
 
 function HotelCard({
   photo,
@@ -14,6 +15,19 @@ function HotelCard({
   availabilityFrom,
   availabilityTo,
 }) {
+  function formatUnixToNaturalDate(dateUnix) {
+    let dateNatural = new Date(dateUnix);
+    return `${dateNatural.getDate()}/${dateNatural.getMonth() + 1}/${dateNatural.getFullYear()}`;
+  }
+
+  function setDollars(number) {
+    let dollar = "";
+    for (let i = 0; i <= number; i++) {
+      dollar += "$";
+    }
+    return dollar;
+  }
+
   return (
     <div className="hotel-card">
       <div className="hotel-card-header">
@@ -39,11 +53,16 @@ function HotelCard({
           </div>
           <div className="tag">
             <img className="icon-dollar" src={dollarIcon} alt="dollar" />
-            {price}
+            {setDollars(price)}
           </div>
-          <div>
-            {availabilityFrom}
-            {availabilityTo}
+          <div className="tag">
+            <img
+              className="icon-availability"
+              src={availabilityIcon}
+              alt="availability"
+            />
+            Del {formatUnixToNaturalDate(availabilityFrom)} al{" "}
+            {`Del ${formatUnixToNaturalDate(availabilityFrom)} al ${formatUnixToNaturalDate(availabilityTo)}`}
           </div>
         </div>
       </div>
