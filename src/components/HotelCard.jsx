@@ -53,7 +53,7 @@ function HotelCard({
           </div>
           <div className="tag">
             <img className="icon-dollar" src={dollarIcon} alt="dollar" />
-            {dollars(price)}
+            {setDollars(price)}
           </div>
           <div className="tag">
             <img
