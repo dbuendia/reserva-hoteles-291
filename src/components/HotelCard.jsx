@@ -62,7 +62,7 @@ function HotelCard({
               alt="availability"
             />
             Del {formatUnixToNaturalDate(availabilityFrom)} al{" "}
-            {formatUnixToNaturalDate(availabilityTo)}
+            {`Del ${formatUnixToNaturalDate(availabilityFrom)} al ${formatUnixToNaturalDate(availabilityTo)}`}
           </div>
         </div>
       </div>
