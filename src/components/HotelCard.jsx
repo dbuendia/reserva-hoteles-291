@@ -20,7 +20,7 @@ function HotelCard({
     return `${dateNatural.getDate()}/${dateNatural.getMonth() + 1}/${dateNatural.getFullYear()}`;
   }
 
-  function dollars(number) {
+  function setDollars(number) {
     let dollar = "";
     for (let i = 0; i <= number; i++) {
       dollar += "$";
